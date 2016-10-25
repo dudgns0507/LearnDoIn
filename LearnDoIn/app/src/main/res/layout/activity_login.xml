@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
     <TextView
         android:layout_width="wrap_content"
@@ -10,13 +12,116 @@
         android:text="LearnDoIn"
         android:textSize="36sp"
         android:layout_gravity="center_horizontal"
-        app:font="custom1"/>
+        android:id="@+id/main_title"
+        android:layout_marginTop="80dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Study, Make it simple"
         android:textSize="16sp"
         android:layout_gravity="center_horizontal"
-        app:font="custom1"/>
-    
+        android:id="@+id/sub_title"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/login_id"
+            android:layout_marginTop="80dp"
+            android:hint="ID"
+            android:clickable="false" />
+
+        <EditText
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/login_pw"
+            android:hint="PW"
+            android:clickable="false" />
+
+        <Button
+            android:text="로그인"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:id="@+id/login_btn"
+            android:background="@drawable/login_btn"
+            android:layout_marginTop="20dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:text="GOOGLE"
+                android:layout_width="115dp"
+                android:layout_height="40dp"
+                android:id="@+id/google_login_btn"
+                android:background="@drawable/google_login_btn"
+                android:textColor="#F44336"
+                android:layout_marginRight="5dp" />
+
+            <Button
+                android:text="FACEBOOK"
+                android:layout_width="115dp"
+                android:layout_height="40dp"
+                android:id="@+id/faceook_login_btn"
+                android:textColor="#3b5998"
+                android:background="@drawable/facebook_login_btn"
+                android:layout_marginLeft="5dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:id="@+id/registration_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_btn"
+            android:textColor="@drawable/circle_btn_textcolor"
+            android:clickable="true"
+            android:text="회원가입"
+            android:padding="10dp"
+            android:gravity="center_horizontal"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="16dp"
+            app:srcCompat="@drawable/vertical_center_line"
+            android:id="@+id/vertical_center_line"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/finduser_btn"
+            android:background="@drawable/circle_btn"
+            android:textColor="@drawable/circle_btn_textcolor"
+            android:clickable="true"
+            android:text="ID/PW찾기"
+            android:padding="10dp"
+            android:gravity="center_horizontal" />
+
+    </LinearLayout>
+
 </LinearLayout>
