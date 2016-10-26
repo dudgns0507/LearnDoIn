@@ -2,16 +2,25 @@ package com.example.dudgns0507.learndoin.Activity;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.dudgns0507.learndoin.R;
-import com.tsengvn.typekit.Typekit;
-import com.tsengvn.typekit.TypekitContextWrapper;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 /**
  * Created by pyh42 on 2016-09-26.
@@ -43,12 +52,12 @@ public class LoginActivity extends AppCompatActivity {
     void setFont(String path, int res) {
         Typeface font = Typeface.createFromAsset(this.getAssets(), path);
 
-        if(findViewById(res) instanceof TextView) {
+        if (findViewById(res) instanceof TextView) {
             TextView mTextView = (TextView) findViewById(res);
             mTextView.setTypeface(font);
         }
-        if(findViewById(res) instanceof Button) {
-            Button mButton = (Button)findViewById(res);
+        if (findViewById(res) instanceof Button) {
+            Button mButton = (Button) findViewById(res);
             mButton.setTypeface(font);
         }
     }
