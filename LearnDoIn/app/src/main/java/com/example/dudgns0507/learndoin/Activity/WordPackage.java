@@ -1,0 +1,20 @@
+package com.example.dudgns0507.learndoin.Activity;
+
+import java.util.*;
+
+/**
+ * Created by sonbi on 2016-11-04.
+ */
+public class WordPackage {
+    Map<String, String> wordList = new HashMap<>(); // word, definition
+    int priority; // Loading Priority
+    List<Long> studyDateList = new ArrayList<>();
+
+    public WordPackage(Map<String,String> wordList, int priority)
+    {
+        this.wordList = wordList;
+        this. priority = priority;
+        Date e = new Date();
+        studyDateList.add(studyDateList.size()+1,e.getTime());
+    }
+}
