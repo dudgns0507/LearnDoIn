@@ -17,4 +17,18 @@ public class WordPackage {
         Date e = new Date();
         studyDateList.add(studyDateList.size()+1,e.getTime());
     }
+
+    public void addWord(WordClass addedWord)
+    {
+        this.wordList.add(addedWord);
+    }
+
+    public void removeWord(WordClass removedWord){
+        for (WordClass word: wordList) {
+            if(word.equals(removedWord)){
+                wordList.remove(word);
+            }
+        }
+    }
+
 }
