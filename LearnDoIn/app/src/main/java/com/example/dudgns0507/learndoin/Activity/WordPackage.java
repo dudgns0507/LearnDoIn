@@ -6,11 +6,11 @@ import java.util.*;
  * Created by sonbi on 2016-11-04.
  */
 public class WordPackage {
-    Map<String, String> wordList = new HashMap<>(); // word, definition
+    List<WordClass> wordList = new ArrayList<>(); // word, definition, time
     int priority; // Loading Priority
     List<Long> studyDateList = new ArrayList<>();
 
-    public WordPackage(Map<String,String> wordList, int priority)
+    public WordPackage(List<WordClass> wordList, int priority)
     {
         this.wordList = wordList;
         this. priority = priority;
