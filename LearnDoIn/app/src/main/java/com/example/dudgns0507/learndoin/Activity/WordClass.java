@@ -8,4 +8,8 @@ public class WordClass {
     String wordContent;
     String meaning;
     long resolveTime;
+    public WordClass(String wordContent, String meaning){
+        this.wordContent = wordContent;
+        this.meaning = meaning;
+    }
 }
