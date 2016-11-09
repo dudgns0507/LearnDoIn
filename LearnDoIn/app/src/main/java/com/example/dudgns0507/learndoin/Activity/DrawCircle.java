@@ -10,12 +10,11 @@ import android.graphics.RectF;
  */
 
 public class DrawCircle {
-    protected void onDraw(Canvas canvas) {
-        final float ZERO = -90f;
-        final float DOTONE = 72f; // 1회 완료시 몇 도 이동?
-        float score = 0.0f;
+    protected void onDraw(Canvas canvas, double score,  double unitCnt) {
+        final double zeroPoint = -90;
+        final double unitDegree = 360/unitCnt; // 1회 완료시 몇 도 이동?
 
-        float degree = score * DOTONE;
+        double degree = score * unitDegree;
 
         Paint p = new Paint();
         p.setAntiAlias(true);
@@ -24,6 +23,6 @@ public class DrawCircle {
         p.setAlpha(0x00);
         RectF rectF = new RectF(100, 100, 400, 400);
 
-        canvas.drawArc(rectF, ZERO, degree, false, p);
+        canvas.drawArc(rectF,(float)zeroPoint, (float)degree, false, p);
     }
 }
