@@ -161,9 +161,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     void login(String id, String pw) {
-        if(id == null || id == "") {
+        if(id == null || id.equals("")) {
             Snackbar.make(getWindow().getDecorView().getRootView(), "ID를 입력해주십시오.", Snackbar.LENGTH_SHORT).show();
-        } else if(pw == null || pw == "") {
+        } else if(pw == null || pw.equals("")) {
             Snackbar.make(getWindow().getDecorView().getRootView(), "PW를 입력해주십시오.", Snackbar.LENGTH_SHORT).show();
         } else {
             asyncDialog = new ProgressDialog(LoginActivity.this);
