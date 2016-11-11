@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -15,7 +16,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -55,6 +58,33 @@ public class ListActivity extends AppCompatActivity {
 
         mAdapter = new ListViewAdapter(this);
         mListView.setAdapter(mAdapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
+        mAdapter.addItem("단어장1", "1시간전", 300, 140, 1);
+        mAdapter.addItem("단어장1", "1시간전", 300, 140, 1);
+        mAdapter.addItem("단어장1", "1시간전", 300, 140, 1);
+        mAdapter.addItem("단어장1", "1시간전", 300, 140, 1);
+
+        setFont("NanumBarunGothicLight.otf", R.id.dday_text);
+        setFont("NanumBarunGothicLight.otf", R.id.dday_title);
+    }
+
+    void setFont(String path, int res) {
+        Typeface font = Typeface.createFromAsset(this.getAssets(), path);
+
+        if (findViewById(res) instanceof TextView) {
+            TextView mTextView = (TextView) findViewById(res);
+            mTextView.setTypeface(font);
+        }
+        if (findViewById(res) instanceof Button) {
+            Button mButton = (Button) findViewById(res);
+            mButton.setTypeface(font);
+        }
     }
 
     @Override
@@ -143,14 +173,38 @@ public class ListActivity extends AppCompatActivity {
 
             ListData mData = mListData.get(position);
 
-            //Log.w(TAG, "title : " + mData.title + ", bookmark : " + mData.bookMark + ", color : " + mData.color);
-            //set textview
+            holder.word_title.setText(mData.word_title);
+            holder.latest.setText(" - " + mData.latest);
+            holder.study_process.setText(mData.all + "개의 단어중 " + mData.process + "개 학습");
+
+            setFont("NanumBarunGothicLight.otf", R.id.word_process);
+            setFont("NanumBarunGothicLight.otf", R.id.word_latest);
+            setFont("NanumBarunGothicLight.otf", R.id.word_title);
+
+            Drawable d = null;
+
+            switch (mData.tag) {
+                case 1: d = getDrawable(R.drawable.circle_green); break;
+                case 2: d = getDrawable(R.drawable.circle_green); break;
+                case 3: d = getDrawable(R.drawable.circle_green); break;
+                case 4: d = getDrawable(R.drawable.circle_green); break;
+                case 5: d = getDrawable(R.drawable.circle_green); break;
+                case 6: d = getDrawable(R.drawable.circle_green); break;
+            }
+            
+            holder.state.setImageDrawable(d);
             return convertView;
         }
 
-        public void addItem(String mTitle, String mFileName, String mColor, boolean mark, int count){
+        public void addItem(String title, String latest, int total, int now, int tag){
             ListData addInfo = null;
             addInfo = new ListData();
+
+            addInfo.tag = tag;
+            addInfo.all = total;
+            addInfo.process = now;
+            addInfo.latest = latest;
+            addInfo.word_title = title;
 
             mListData.add(addInfo);
         }
@@ -162,6 +216,19 @@ public class ListActivity extends AppCompatActivity {
 
         public void dataChange(){
             mAdapter.notifyDataSetChanged();
+        }
+
+        void setFont(String path, int res) {
+            Typeface font = Typeface.createFromAsset(getAssets(), path);
+
+            if (findViewById(res) instanceof TextView) {
+                TextView mTextView = (TextView) findViewById(res);
+                mTextView.setTypeface(font);
+            }
+            if (findViewById(res) instanceof Button) {
+                Button mButton = (Button) findViewById(res);
+                mButton.setTypeface(font);
+            }
         }
     }
 }

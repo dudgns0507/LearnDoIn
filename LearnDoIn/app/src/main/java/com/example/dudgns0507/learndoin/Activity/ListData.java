@@ -7,7 +7,8 @@ package com.example.dudgns0507.learndoin.Activity;
 public class ListData {
     public String word_title;
     public String latest;
-    public String process;
 
+    public int all;
+    public int process;
     public int tag;
 }

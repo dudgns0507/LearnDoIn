@@ -130,20 +130,26 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     public void processFinish(String output) {
         asyncDialog.dismiss();
 
-        Snackbar.make(getWindow().getDecorView().getRootView(), "가입 완료", Snackbar.LENGTH_SHORT)
-                .setActionTextColor(Color.GREEN)
-                .setAction("확인", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finish();
-                    }
-                })
-                .setCallback(new Snackbar.Callback() {
-                    @Override
-                    public void onDismissed(Snackbar snackbar, int event) {
-                        super.onDismissed(snackbar, event);
-                        finish();
-                    }
-                }).show();
+        if(output.equals("1")) {
+            Snackbar.make(getWindow().getDecorView().getRootView(), "이미 가입된 계정입니다.", Snackbar.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Snackbar.make(getWindow().getDecorView().getRootView(), "가입 완료", Snackbar.LENGTH_SHORT)
+                    .setActionTextColor(Color.GREEN)
+                    .setAction("확인", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            finish();
+                        }
+                    })
+                    .setCallback(new Snackbar.Callback() {
+                        @Override
+                        public void onDismissed(Snackbar snackbar, int event) {
+                            super.onDismissed(snackbar, event);
+                            finish();
+                        }
+                    }).show();
+        }
     }
 }
