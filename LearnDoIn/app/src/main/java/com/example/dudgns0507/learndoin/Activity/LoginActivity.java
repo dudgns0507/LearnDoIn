@@ -84,6 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Log.w(TAG, "Load RegistrationActivity");
                 Intent intentRegistrationActivity = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(intentRegistrationActivity);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             case R.id.login_btn :
                 EditText login_id = (EditText)findViewById(R.id.login_id);
