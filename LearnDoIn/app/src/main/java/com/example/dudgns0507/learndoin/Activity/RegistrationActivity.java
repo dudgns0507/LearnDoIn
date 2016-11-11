@@ -129,7 +129,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void processFinish(String output) {
         asyncDialog.dismiss();
-        
+
         Snackbar.make(getWindow().getDecorView().getRootView(), "가입 완료", Snackbar.LENGTH_SHORT)
                 .setActionTextColor(Color.GREEN)
                 .setAction("확인", new View.OnClickListener() {
