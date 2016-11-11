@@ -177,9 +177,11 @@ public class ListActivity extends AppCompatActivity {
             holder.latest.setText(" - " + mData.latest);
             holder.study_process.setText(mData.all + "개의 단어중 " + mData.process + "개 학습");
 
-            setFont("NanumBarunGothicLight.otf", R.id.word_process);
-            setFont("NanumBarunGothicLight.otf", R.id.word_latest);
-            setFont("NanumBarunGothicLight.otf", R.id.word_title);
+            Typeface font_light = Typeface.createFromAsset(getAssets(), "NanumBarunGothicLight.otf");
+            Typeface font_normal = Typeface.createFromAsset(getAssets(), "NanumBarunGothic.otf");
+            holder.word_title.setTypeface(font_normal);
+            holder.latest.setTypeface(font_light);
+            holder.study_process.setTypeface(font_light);
 
             Drawable d = null;
 
@@ -216,19 +218,6 @@ public class ListActivity extends AppCompatActivity {
 
         public void dataChange(){
             mAdapter.notifyDataSetChanged();
-        }
-
-        void setFont(String path, int res) {
-            Typeface font = Typeface.createFromAsset(getAssets(), path);
-
-            if (findViewById(res) instanceof TextView) {
-                TextView mTextView = (TextView) findViewById(res);
-                mTextView.setTypeface(font);
-            }
-            if (findViewById(res) instanceof Button) {
-                Button mButton = (Button) findViewById(res);
-                mButton.setTypeface(font);
-            }
         }
     }
 }

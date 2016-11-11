@@ -123,7 +123,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 Snackbar.make(getWindow().getDecorView().getRootView(), "로그인 성공", Snackbar.LENGTH_SHORT)
                         .setActionTextColor(Color.GREEN)
-                        .setDuration(1000)
+                        .setDuration(500)
                         .setAction("확인", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                     }
-                },1000);
+                },500);
             } else {
                 Snackbar.make(getWindow().getDecorView().getRootView(), "로그인 실패", Snackbar.LENGTH_SHORT)
                     .setActionTextColor(Color.GREEN)
