@@ -7,11 +7,11 @@
     android:background="@android:color/white">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp">
-
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:gravity="bottom">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,184 +32,221 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:paddingTop="80dp">
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="5">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="380">
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="70" />
-
-            <EditText
-                android:layout_height="match_parent"
-                android:inputType="textEmailAddress"
-                android:ems="10"
-                android:id="@+id/login_id"
-                android:hint="ID"
-                android:clickable="false"
-                android:layout_weight="240"
-                android:layout_width="0dp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="70" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="380">
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="70" />
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:ems="10"
-                android:id="@+id/login_pw"
-                android:hint="PW"
-                android:clickable="false"
-                android:layout_weight="240"/>
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="70" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:weightSum="380"
-            android:layout_weight="8"
-            android:layout_marginTop="20dp">
+            android:orientation="vertical"
+            android:layout_weight="2"></LinearLayout>
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="70" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="5"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="380">
 
-            <Button
-                android:text="로그인"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:id="@+id/login_btn"
-                android:background="@drawable/login_btn"
-                android:textColor="@drawable/btn_textcolor"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_weight="240"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="70" />
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="70" />
+                <EditText
+                    android:layout_height="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/login_id"
+                    android:hint="ID"
+                    android:clickable="false"
+                    android:layout_weight="240"
+                    android:layout_width="0dp" />
 
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="70" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="380">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="70" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/login_pw"
+                    android:hint="PW"
+                    android:clickable="false"
+                    android:layout_weight="240"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="70" />
+
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:paddingBottom="5dp"
-            android:weightSum="380">
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"></LinearLayout>
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="75" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="5"
+            android:gravity="center_vertical">
 
-            <Button
-                android:text="GOOGLE"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/google_login_btn"
-                android:background="@drawable/google_login_btn"
-                style="?android:attr/borderlessButtonStyle"
-                android:textColor="#F44336"
-                android:layout_weight="115" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="380"
+                android:gravity="bottom">
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="10" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="70" />
 
-            <Button
-                android:text="FACEBOOK"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="115"
-                android:id="@+id/faceook_login_btn"
-                android:textColor="#3b5998"
-                android:background="@drawable/facebook_login_btn"
-                style="?android:attr/borderlessButtonStyle" />
+                <Button
+                    android:text="로그인"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/login_btn"
+                    android:background="@drawable/login_btn"
+                    android:textColor="@drawable/btn_textcolor"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_weight="240"/>
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="75" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="70" />
 
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:gravity="top|center_horizontal"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:weightSum="380">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="75" />
+
+                <Button
+                    android:text="GOOGLE"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/google_login_btn"
+                    android:background="@drawable/google_login_btn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:textColor="#F44336"
+                    android:layout_weight="115" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10" />
+
+                <Button
+                    android:text="FACEBOOK"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="115"
+                    android:id="@+id/faceook_login_btn"
+                    android:textColor="#3b5998"
+                    android:background="@drawable/facebook_login_btn"
+                    style="?android:attr/borderlessButtonStyle" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="75" />
+
+            </LinearLayout>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="3"></LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom|center_horizontal"
-        android:layout_marginBottom="20dp">
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|center_horizontal"
+            android:layout_marginBottom="20dp">
 
-        <TextView
-            android:layout_marginLeft="20dp"
-            android:id="@+id/registration_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/circle_btn"
-            android:textColor="@drawable/btn_textcolor"
-            android:clickable="true"
-            android:text="회원가입"
-            android:padding="10dp"
-            android:gravity="center_horizontal"/>
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/registration_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle_btn"
+                android:textColor="@drawable/btn_textcolor"
+                android:clickable="true"
+                android:text="회원가입"
+                android:padding="10dp"
+                android:gravity="center_horizontal"/>
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="16dp"
-            app:srcCompat="@drawable/vertical_center_line"
-            android:id="@+id/vertical_center_line"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginBottom="10dp" />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="16dp"
+                app:srcCompat="@drawable/vertical_center_line"
+                android:id="@+id/vertical_center_line"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/finduser_btn"
-            android:background="@drawable/circle_btn"
-            android:textColor="@drawable/btn_textcolor"
-            android:clickable="true"
-            android:text="ID/PW찾기"
-            android:padding="10dp"
-            android:gravity="center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/finduser_btn"
+                android:background="@drawable/circle_btn"
+                android:textColor="@drawable/btn_textcolor"
+                android:clickable="true"
+                android:text="ID/PW찾기"
+                android:padding="10dp"
+                android:gravity="center_horizontal" />
 
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
