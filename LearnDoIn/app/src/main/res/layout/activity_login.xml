@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Study, Make it simple"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:layout_gravity="center_horizontal"
             android:id="@+id/sub_title"
             android:gravity="center_horizontal" />

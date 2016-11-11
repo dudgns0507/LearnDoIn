@@ -161,16 +161,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     void login(String id, String pw) {
-        Log.w(TAG, "Connect DB");
-        asyncDialog = new ProgressDialog(LoginActivity.this);
-        asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        asyncDialog.setMessage("로딩중입니다..");
+        if(id == null || id == "") {
+            Snackbar.make(getWindow().getDecorView().getRootView(), "ID를 입력해주십시오.", Snackbar.LENGTH_SHORT).show();
+        } else if(pw == null || pw == "") {
+            Snackbar.make(getWindow().getDecorView().getRootView(), "PW를 입력해주십시오.", Snackbar.LENGTH_SHORT).show();
+        } else {
+            asyncDialog = new ProgressDialog(LoginActivity.this);
+            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            asyncDialog.setMessage("로딩중입니다..");
 
-        asyncDialog.show();
+            asyncDialog.show();
 
-        DbConnection dbConnection = new DbConnection();
-        dbConnection.delegate = this;
-        dbConnection.getData("http://0hoon.xyz/login.php?user_id=" + id + "&user_pw=" + pw);
+            Log.w(TAG, "Connect DB");
+            DbConnection dbConnection = new DbConnection();
+            dbConnection.delegate = this;
+            dbConnection.getData("http://0hoon.xyz/login.php?user_id=" + id + "&user_pw=" + pw);
+        }
     }
 
     void googleLogin() {
