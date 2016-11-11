@@ -1,9 +1,11 @@
 package com.example.dudgns0507.learndoin.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -137,6 +139,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         {
             Snackbar.make(getWindow().getDecorView().getRootView(), "가입 완료", Snackbar.LENGTH_SHORT)
                     .setActionTextColor(Color.GREEN)
+                    .setDuration(500)
                     .setAction("확인", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -148,8 +151,18 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         public void onDismissed(Snackbar snackbar, int event) {
                             super.onDismissed(snackbar, event);
                             finish();
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                     }).show();
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                }
+            },500);
         }
     }
 }
