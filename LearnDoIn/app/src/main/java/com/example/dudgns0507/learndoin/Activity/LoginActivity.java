@@ -1,5 +1,6 @@
 package com.example.dudgns0507.learndoin.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -39,6 +40,7 @@ import org.w3c.dom.Text;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, AsyncResponse {
 
     private final static String TAG = "LoginActivity";
+    private ProgressDialog asyncDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -112,11 +114,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void processFinish(String output) {
         if(output != null) {
             Log.w(TAG, output);
+            asyncDialog.dismiss();
             jsonParse(output);
         }
     }
 
     void jsonParse(String json) {
+
         try {
             JSONArray jsonArray = new JSONArray(json);
             JSONObject jsonObject = jsonArray.getJSONObject(0);
@@ -128,9 +132,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 userInfo.setName(jsonObject.getString("user_name"));
                 userInfo.setId(jsonObject.getString("user_id"));
 
-                Intent intent = new Intent(LoginActivity.this, ListActivity.class);
-                startActivity(intent);
-                finish();
+                Snackbar.make(getWindow().getDecorView().getRootView(), "로그인 성공", Snackbar.LENGTH_SHORT)
+                        .setActionTextColor(Color.GREEN)
+                        .setAction("확인", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(LoginActivity.this, ListActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setCallback(new Snackbar.Callback() {
+                            @Override
+                            public void onDismissed(Snackbar snackbar, int event) {
+                                super.onDismissed(snackbar, event);
+                                Intent intent = new Intent(LoginActivity.this, ListActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .show();
             } else {
                 Snackbar.make(getWindow().getDecorView().getRootView(), "로그인 실패", Snackbar.LENGTH_SHORT)
                     .setActionTextColor(Color.GREEN)
@@ -148,6 +169,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     void login(String id, String pw) {
         Log.w(TAG, "Connect DB");
+        asyncDialog = new ProgressDialog(LoginActivity.this);
+        asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        asyncDialog.setMessage("로딩중입니다..");
+
+        asyncDialog.show();
+
         DbConnection dbConnection = new DbConnection();
         dbConnection.delegate = this;
         dbConnection.getData("http://0hoon.xyz/login.php?user_id=" + id + "&user_pw=" + pw);

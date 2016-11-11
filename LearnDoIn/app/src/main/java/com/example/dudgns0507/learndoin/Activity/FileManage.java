@@ -22,10 +22,10 @@ public class FileManage {
         List<WordClass> wordList = new ArrayList<>(); // word, definition, time
         StringTokenizer tokenizer = new StringTokenizer(data,replace);
         for(int i=0;i<=tokenizer.countTokens();++i){
-            WordClass temp = new WordClass();
-            temp.wordContent = tokenizer.nextToken();
-            temp.meaning = tokenizer.nextToken();
-            wordList.add(temp);
+            //WordClass temp = new WordClass();
+            //temp.wordContent = tokenizer.nextToken();
+            //temp.meaning = tokenizer.nextToken();
+            //wordList.add(temp);
         }
         return wordList;
     }

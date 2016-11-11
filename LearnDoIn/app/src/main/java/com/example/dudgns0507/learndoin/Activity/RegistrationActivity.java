@@ -1,5 +1,6 @@
 package com.example.dudgns0507.learndoin.Activity;
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     private int cnt;
     private EditText reg_name_edit, reg_id_edit, reg_pw_edit, reg_pwcheck_edit;
     private TextView reg_name_text, reg_id_text, reg_pw_text, reg_pwcheck_text;
+    private ProgressDialog asyncDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,6 +113,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         }
 
         if (cnt == 0) {
+            asyncDialog = new ProgressDialog(RegistrationActivity.this);
+            asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            asyncDialog.setMessage("로딩중입니다..");
+
+            asyncDialog.show();
+
             String json;
             DbConnection dbConnection = new DbConnection();
             dbConnection.delegate = this;
@@ -120,6 +128,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void processFinish(String output) {
+        asyncDialog.dismiss();
+        
         Snackbar.make(getWindow().getDecorView().getRootView(), "가입 완료", Snackbar.LENGTH_SHORT)
                 .setActionTextColor(Color.GREEN)
                 .setAction("확인", new View.OnClickListener() {
