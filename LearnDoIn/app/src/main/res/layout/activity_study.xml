@@ -4,4 +4,55 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        android:text="Asset"
+        android:textColor="#000000"
+        android:gravity="center_horizontal|bottom"
+        android:layout_weight="30"
+        android:id="@+id/study_text" />
+
+    <TextView
+        android:id="@+id/study_text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="자산"
+        android:textColor="#000000"
+        android:gravity="center_horizontal"
+        android:paddingTop="20dp"
+        android:layout_weight="50"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:weightSum="380"
+        android:gravity="center_vertical">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="70" />
+
+        <Button
+            android:text="다음"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:id="@+id/study_btn"
+            android:background="@drawable/login_btn"
+            android:textColor="@drawable/btn_textcolor"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="240"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="70" />
+
+    </LinearLayout>
+
 </LinearLayout>

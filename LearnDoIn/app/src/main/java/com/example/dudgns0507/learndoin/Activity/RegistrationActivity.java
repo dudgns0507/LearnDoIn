@@ -143,15 +143,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     .setAction("확인", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            finish();
-                        }
-                    })
-                    .setCallback(new Snackbar.Callback() {
-                        @Override
-                        public void onDismissed(Snackbar snackbar, int event) {
-                            super.onDismissed(snackbar, event);
-                            finish();
-                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                     }).show();
 

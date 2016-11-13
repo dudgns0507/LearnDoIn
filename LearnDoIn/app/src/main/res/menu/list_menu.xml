@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity.ListActivity">
+    <item
+        android:id="@+id/menu_setting"
+        android:orderInCategory="100"
+        android:title="설정" />
+
+    <item
+        android:id="@+id/menu_add_wrodlist"
+        android:orderInCategory="100"
+        android:title="단어장 추가" />
+
+    <item
+        android:id="@+id/menu_add_dday"
+        android:orderInCategory="100"
+        android:title="D-DAY 추가" />
+
+    <item
+        android:id="@+id/menu_help"
+        android:orderInCategory="100"
+        android:title="도움말" />
+
+    <item
+        android:id="@+id/menu_logout"
+        android:orderInCategory="100"
+        android:title="로그아웃" />
+</menu>

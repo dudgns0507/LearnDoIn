@@ -33,6 +33,9 @@ public class DbConnection {
 
                 String uri = params[0];
 
+                if(uri.equals(""))
+                    return null;
+
                 BufferedReader bufferedReader = null;
                 try {
                     URL url = new URL(uri);
@@ -53,7 +56,10 @@ public class DbConnection {
 
             @Override
             protected void onPostExecute(String result){
-                delegate.processFinish(result);
+                if(result != null)
+                    delegate.processFinish(result);
+                else
+                    delegate.processFinish(null);
             }
         }
         GetDataJSON g = new GetDataJSON();

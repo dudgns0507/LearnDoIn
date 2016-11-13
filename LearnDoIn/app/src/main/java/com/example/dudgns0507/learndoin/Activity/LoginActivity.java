@@ -128,27 +128,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         .setAction("확인", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(LoginActivity.this, ListActivity.class);
-                                startActivity(intent);
-                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                                finish();
                             }
-                        })
-                        .show();
+                        }).show();
+
+                final Intent intent = new Intent(LoginActivity.this, ListActivity.class);
 
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(LoginActivity.this, ListActivity.class);
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        finish();
                     }
                 },500);
             } else {
                 Snackbar.make(getWindow().getDecorView().getRootView(), "로그인 실패", Snackbar.LENGTH_SHORT)
                     .setActionTextColor(Color.GREEN)
+                    .setDuration(500)
                     .setAction("확인", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

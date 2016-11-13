@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".Activity.UserInfo"
@@ -22,7 +23,7 @@
 
         <activity android:name=".Activity.RegistrationActivity"></activity>
         <activity android:name=".Activity.SettingActivity"></activity>
-        <activity android:name=".Activity.StudyActivity"></activity>
+        <activity android:name=".Activity.StudyActivity" android:noHistory="true"></activity>
         <activity android:name=".Activity.FindUserActivity"></activity>
         <activity android:name=".Activity.GraphActivity"></activity>
         <activity android:name=".Activity.ListActivity"></activity>
@@ -34,5 +35,4 @@
             android:value="@integer/google_play_services_version" />
 
     </application>
-
 </manifest>
