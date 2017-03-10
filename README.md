@@ -1,32 +1,32 @@
 # Introduction
 
-LearnDoIn is study application.
-Users can learn knowledge through iterative learning based on Ebbinghaus forgetting curve.
-It helps you memorize various knowledge, not just words.
+LearnDoIn is an application for efficient memorization.
+Users can learn through iterative learning which adopts the custom made algorithm based on "Ebbinghaus forgetting curve".
+It helps you memorize various knowledges, not just vocabulary.
 
 
 # Developer
 
-This is school application develop project at KoreaDigitalMediaHighSchool.
+This is a school project, an application developed in the skunkworks of KoreaDigitalMedia HighSchool.
 
 >Park Young-Hoon - Main Developer
 
 >Son Myung-Joon - Sub Developer
 
->Kwon Joon-hyun - Crawling function develop, Data research
+>Kwon Joon-hyun - Crawling function, Data research
 
->Jang Hyea-Ji - Crawling function develop, Data research
+>Jang Hyea-Ji - Crawling function, Data research
 
->Park Joon-Young - UI/UX Design
+>Park Joon-Young - UI Design
 
 
 # Functions
 
-- Login with sns account
-- Display D-day
-- Review notification with forgetting curve.
-- Graph of memory and study
-- Async word bundle with server
+- Convenient SNS account login system
+- D-day display
+- Review notification when forgetting curve hits boundary line.
+- Smart graph of memorization status and study
+- Sync word bundle with server
 
 
 ## Contacts
