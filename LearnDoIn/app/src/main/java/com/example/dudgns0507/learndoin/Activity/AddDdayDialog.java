@@ -8,11 +8,16 @@ import android.widget.Button;
 
 import com.example.dudgns0507.learndoin.R;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by pyh42 on 2016-11-13.
  */
 
 public class AddDdayDialog extends Dialog {
+
+    private static final String TAG = "AddDdayDialog";
+
     public AddDdayDialog(Context context, int themeResId) {
         super(context, themeResId);
     }
@@ -29,6 +34,8 @@ public class AddDdayDialog extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_dday_dialog);
+        ButterKnife.bind(this);
+
         init();
     }
 

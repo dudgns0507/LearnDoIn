@@ -1,4 +1,4 @@
-package com.example.dudgns0507.learndoin.Activity;
+package com.example.dudgns0507.learndoin.Activity.model;
 
 import android.app.Application;
 

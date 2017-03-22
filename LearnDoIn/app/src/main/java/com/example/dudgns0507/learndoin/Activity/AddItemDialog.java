@@ -1,19 +1,16 @@
 package com.example.dudgns0507.learndoin.Activity;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.dudgns0507.learndoin.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by pyh42 on 2016-11-12.
@@ -22,6 +19,8 @@ import com.example.dudgns0507.learndoin.R;
 public class AddItemDialog extends Dialog {
 
     private View view;
+
+    @BindView(R.id.add_item_btn) Button add_file_btn;
 
     public AddItemDialog(Context context) {
         super(context);
@@ -38,17 +37,13 @@ public class AddItemDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.add_item_dialog);
+        ButterKnife.bind(this);
+
         init();
     }
 
     void init() {
-        Button add_file_btn = (Button) view.findViewById(R.id.add_item_btn);
-        add_file_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
-
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();

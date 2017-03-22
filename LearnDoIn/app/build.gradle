@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "24.0.2"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.example.dudgns0507.learndoin"
         minSdkVersion 15
@@ -29,6 +29,10 @@ dependencies {
     compile 'com.android.support:support-v4:23.4.0'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'com.android.support:design:24.2.1'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile project(':filepicker')
+
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'                         // Retrofit
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'                   // Retrofit
+    compile 'gun0912.ted:tedpermission:1.0.2'                               // TedPermission
+    compile 'com.jakewharton:butterknife:8.5.1'                             // ButterKnife
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'        // ButterKnife
 }

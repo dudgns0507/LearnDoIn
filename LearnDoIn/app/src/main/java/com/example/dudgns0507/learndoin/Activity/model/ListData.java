@@ -1,4 +1,4 @@
-package com.example.dudgns0507.learndoin.Activity;
+package com.example.dudgns0507.learndoin.Activity.model;
 
 /**
  * Created by pyh42 on 2016-11-11.

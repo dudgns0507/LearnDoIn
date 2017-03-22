@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff">
@@ -8,52 +9,56 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="25">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/list_top"
-                android:scaleType="fitXY"/>
-        </FrameLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/list_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/back_1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/list_menu"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/list_menu"
                 android:layout_gravity="right|top"
-                android:src="@drawable/ic_more_horiz_white_24dp"
-                style="@style/Widget.AppCompat.Button.Borderless"/>
+                android:src="@drawable/ic_more_horiz_white_24dp" />
         </FrameLayout>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
 
-            <TextView
-                android:text="중간고사"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <com.example.dudgns0507.learndoin.Activity.widget.GothicTextView
                 android:id="@+id/dday_title"
-                android:textColor="#ffffff"
-                android:textSize="24sp"
-                android:layout_marginBottom="5dp"/>
-
-            <TextView
-                android:text="D - 10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="중간고사"
+                android:textColor="#ffffff"
+                android:textSize="24sp" />
+
+            <com.example.dudgns0507.learndoin.Activity.widget.GothicTextView
                 android:id="@+id/dday_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="D-10"
                 android:textColor="#ffffff"
                 android:textSize="48sp" />
         </LinearLayout>

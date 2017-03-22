@@ -1,9 +1,9 @@
 package com.example.dudgns0507.learndoin.Activity;
 
+import com.example.dudgns0507.learndoin.Activity.model.Word;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
@@ -17,15 +17,15 @@ public class FileManage {
     {
     }
 
-    public static List<WordClass> parse(String data, String replace)
+    public static List<Word> parse(String data, String replace)
     {
         data = data.replace("\n", "\t");
-        List<WordClass> wordList = new ArrayList<>(); // word, definition, time
+        List<Word> wordList = new ArrayList<>(); // word, definition, time
         StringTokenizer tokenizer = new StringTokenizer(data,replace);
         for(int i=0;i<=tokenizer.countTokens();++i){
-            WordClass temp = new WordClass();
-            temp.wordContent = tokenizer.nextToken();
-            temp.meaning = tokenizer.nextToken();
+            Word temp = new Word();
+            temp.setWordContent(tokenizer.nextToken());
+            temp.setMeaning(tokenizer.nextToken());
             wordList.add(temp);
         }
         return wordList;

@@ -12,22 +12,22 @@
         android:orientation="vertical"
         android:layout_weight="2"
         android:gravity="bottom">
-        <TextView
+        <com.example.dudgns0507.learndoin.Activity.widget.GothicULTextView
+            android:id="@+id/main_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LearnDoIn"
             android:textColor="#000000"
             android:textSize="36sp"
-            android:id="@+id/main_title"
             android:gravity="center_horizontal" />
 
-        <TextView
+        <com.example.dudgns0507.learndoin.Activity.widget.GothicULTextView
+            android:id="@+id/sub_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Study, Make it simple"
             android:textSize="14sp"
             android:layout_gravity="center_horizontal"
-            android:id="@+id/sub_title"
             android:gravity="center_horizontal" />
     </LinearLayout>
 
@@ -110,7 +110,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:layout_weight="1"></LinearLayout>
+            android:layout_weight="1">
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -132,15 +134,15 @@
                     android:layout_height="match_parent"
                     android:layout_weight="70" />
 
-                <Button
-                    android:text="로그인"
+                <com.example.dudgns0507.learndoin.Activity.widget.GothicLTextView
+                    android:id="@+id/login_btn"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:id="@+id/login_btn"
+                    android:layout_weight="240"
+                    android:gravity="center"
+                    android:text="로그인"
                     android:background="@drawable/login_btn"
-                    android:textColor="@drawable/btn_textcolor"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_weight="240"/>
+                    android:textColor="@drawable/btn_textcolor"/>
 
                 <Space
                     android:layout_width="0dp"
@@ -163,13 +165,13 @@
                     android:layout_height="match_parent"
                     android:layout_weight="75" />
 
-                <Button
+                <com.example.dudgns0507.learndoin.Activity.widget.GothicLTextView
+                    android:id="@+id/google_login_btn"
                     android:text="GOOGLE"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:id="@+id/google_login_btn"
+                    android:gravity="center"
                     android:background="@drawable/google_login_btn"
-                    style="?android:attr/borderlessButtonStyle"
                     android:textColor="#F44336"
                     android:layout_weight="115" />
 
@@ -178,15 +180,15 @@
                     android:layout_height="match_parent"
                     android:layout_weight="10" />
 
-                <Button
+                <com.example.dudgns0507.learndoin.Activity.widget.GothicLTextView
+                    android:id="@+id/faceook_login_btn"
                     android:text="FACEBOOK"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_weight="115"
-                    android:id="@+id/faceook_login_btn"
+                    android:gravity="center"
                     android:textColor="#3b5998"
-                    android:background="@drawable/facebook_login_btn"
-                    style="?android:attr/borderlessButtonStyle" />
+                    android:background="@drawable/facebook_login_btn" />
 
                 <Space
                     android:layout_width="0dp"
@@ -196,11 +198,10 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_weight="3"></LinearLayout>
+            android:layout_weight="3" />
     </LinearLayout>
 
     <LinearLayout
@@ -211,20 +212,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom|center_horizontal"
+            android:gravity="bottom"
             android:layout_marginBottom="20dp">
 
-            <TextView
-                android:layout_marginLeft="20dp"
-                android:id="@+id/registration_btn"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/circle_btn"
-                android:textColor="@drawable/btn_textcolor"
-                android:clickable="true"
-                android:text="회원가입"
-                android:padding="10dp"
-                android:gravity="center_horizontal"/>
+                android:layout_weight="45"
+                android:gravity="center_vertical|right">
+                <com.example.dudgns0507.learndoin.Activity.widget.GothicLTextView
+                    android:id="@+id/registration_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_btn"
+                    android:textColor="@drawable/btn_textcolor"
+                    android:clickable="true"
+                    android:text="회원가입"
+                    android:padding="10dp"/>
+            </LinearLayout>
 
             <ImageView
                 android:layout_width="20dp"
@@ -235,16 +240,20 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="10dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/finduser_btn"
-                android:background="@drawable/circle_btn"
-                android:textColor="@drawable/btn_textcolor"
-                android:clickable="true"
-                android:text="ID/PW찾기"
-                android:padding="10dp"
-                android:gravity="center_horizontal" />
+                android:layout_weight="45"
+                android:gravity="center_vertical|left">
+                <com.example.dudgns0507.learndoin.Activity.widget.GothicLTextView
+                    android:id="@+id/finduser_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_btn"
+                    android:textColor="@drawable/btn_textcolor"
+                    android:text="ID/PW찾기"
+                    android:padding="10dp" />
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
