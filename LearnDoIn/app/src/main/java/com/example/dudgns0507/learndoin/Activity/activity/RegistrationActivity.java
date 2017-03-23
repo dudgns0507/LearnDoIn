@@ -2,84 +2,61 @@ package com.example.dudgns0507.learndoin.Activity.activity;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.dudgns0507.learndoin.Activity.AsyncResponse;
-import com.example.dudgns0507.learndoin.Activity.DbConnection;
+import com.example.dudgns0507.learndoin.Activity.Registration;
+import com.example.dudgns0507.learndoin.Activity.model.Result;
 import com.example.dudgns0507.learndoin.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by pyh42 on 2016-10-24.
  */
 
-public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener, AsyncResponse {
+public class RegistrationActivity extends AppCompatActivity {
+
+    private static final String TAG = "RegistrationActivity";
 
     private int cnt;
-    private EditText reg_name_edit, reg_id_edit, reg_pw_edit, reg_pwcheck_edit;
-    private TextView reg_name_text, reg_id_text, reg_pw_text, reg_pwcheck_text;
+
+    @BindView(R.id.registration_name_edittext) EditText reg_name_edit;
+    @BindView(R.id.registration_id_edittext) EditText reg_id_edit;
+    @BindView(R.id.registration_pw_edittext) EditText reg_pw_edit;
+    @BindView(R.id.registration_pwcheck_edittext) EditText reg_pwcheck_edit;
+    @BindView(R.id.registration_name_text) TextView reg_name_text;
+    @BindView(R.id.registration_id_text) TextView reg_id_text;
+    @BindView(R.id.registration_pw_text) TextView reg_pw_text;
+    @BindView(R.id.registration_pwcheck_text) TextView reg_pwcheck_text;
+
+    @BindView(R.id.registration_confirm_btn) TextView reg_confirm_btn;
+
     private ProgressDialog asyncDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
-        init();
+        ButterKnife.bind(this);
     }
 
-    void init() {
-        ActionBar mActionBar = getSupportActionBar();
-        mActionBar.hide();
+    @OnClick(R.id.registration_confirm_btn) void registration() {
 
-        setFont("NanumBarunGothicUltraLight.otf", R.id.registration_title);
-        setFont("NanumBarunGothicLight.otf", R.id.registration_confirm_btn);
-
-        reg_name_edit = (EditText)findViewById(R.id.registration_name_edittext);
-        reg_id_edit = (EditText)findViewById(R.id.registration_id_edittext);
-        reg_pw_edit = (EditText)findViewById(R.id.registration_pw_edittext);
-        reg_pwcheck_edit = (EditText)findViewById(R.id.registration_pwcheck_edittext);
-        reg_name_text = (TextView)findViewById(R.id.registration_name_text);
-        reg_id_text = (TextView)findViewById(R.id.registration_id_text);
-        reg_pw_text = (TextView)findViewById(R.id.registration_pw_text);
-        reg_pwcheck_text = (TextView)findViewById(R.id.registration_pwcheck_text);
-
-        Button reg_confirm_btn = (Button)findViewById(R.id.registration_confirm_btn);
-        reg_confirm_btn.setOnClickListener(this);
-    }
-
-    void setFont(String path, int res) {
-        Typeface font = Typeface.createFromAsset(this.getAssets(), path);
-
-        if (findViewById(res) instanceof TextView) {
-            TextView mTextView = (TextView) findViewById(res);
-            mTextView.setTypeface(font);
-        }
-        if (findViewById(res) instanceof Button) {
-            Button mButton = (Button) findViewById(res);
-            mButton.setTypeface(font);
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.registration_confirm_btn :
-                registration();
-                break;
-        }
-    }
-
-    private void registration() {
         cnt = 0;
         if (reg_name_edit.getText() == null) {
             reg_name_edit.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.circle_red), null);
@@ -119,39 +96,48 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
             asyncDialog.show();
 
-            String json;
-            DbConnection dbConnection = new DbConnection();
-            dbConnection.delegate = this;
-            dbConnection.getData("http://0hoon.xyz/registration.php?user_name=" + reg_name_edit.getText().toString() + "&user_id=" + reg_id_edit.getText().toString() + "&user_pw=" + reg_pw_edit.getText().toString());
-        }
-    }
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://0hoon.xyz")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
 
-    @Override
-    public void processFinish(String output) {
-        asyncDialog.dismiss();
+            Registration registration = retrofit.create(Registration.class);
 
-        if(output.equals("1")) {
-            Snackbar.make(getWindow().getDecorView().getRootView(), "이미 가입된 계정입니다.", Snackbar.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Snackbar.make(getWindow().getDecorView().getRootView(), "가입 완료", Snackbar.LENGTH_SHORT)
-                    .setActionTextColor(Color.GREEN)
-                    .setDuration(500)
-                    .setAction("확인", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                        }
-                    }).show();
-
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
+            Call<Result> call = registration.registration(reg_id_edit.getText().toString(), reg_pw_edit.getText().toString(), "", reg_name_edit.getText().toString());
+            call.enqueue(new Callback<Result>() {
                 @Override
-                public void run() {
-                    finish();
-                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                public void onResponse(Call<Result> call, Response<Result> response) {
+                    Result res = response.body();
+                    if(res.getResult() == 1) {
+                        Snackbar.make(getWindow().getDecorView().getRootView(), "가입 완료", Snackbar.LENGTH_SHORT)
+                                .setActionTextColor(Color.GREEN)
+                                .setDuration(500)
+                                .setAction("확인", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                    }
+                                }).show();
+
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                finish();
+                                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                            }
+                        },500);
+                    } else if(res.getResult() == 2) {
+                        Snackbar.make(getWindow().getDecorView().getRootView(), "이미 가입된 계정입니다.", Snackbar.LENGTH_SHORT).show();
+                    } else {
+                        Snackbar.make(getWindow().getDecorView().getRootView(), "가입 도중 오류가 발생했습니다.", Snackbar.LENGTH_SHORT).show();
+                    }
                 }
-            },500);
+
+                @Override
+                public void onFailure(Call<Result> call, Throwable t) {
+                    Log.w(TAG, "error" + t.getStackTrace());
+                }
+            });
         }
     }
 

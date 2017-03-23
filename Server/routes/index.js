@@ -3,7 +3,7 @@ module.exports = function(app, crypto, WordList, UserData)
     app.post('/api/signup', function(req, res) {
         UserData.findOne({id: req.body.id}, function(err, data) {
             if(err) return res.status(500).json({error: err});
-            else if(data) return res.status(404).json({error: 'Id already exist!'});
+            else if(data) return res.status(404).json({result: 2, error: 'Id already exist!'});
 
             else {
                 var shasum = crypto.createHash('sha1');
