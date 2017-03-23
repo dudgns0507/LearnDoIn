@@ -1,12 +1,14 @@
 package com.example.dudgns0507.learndoin.Activity.model;
 
+import android.app.Application;
+
 import java.util.ArrayList;
 
 /**
- * Created by pyh42 on 2017-03-22.
+ * Created by pyh42 on 2017-03-23.
  */
 
-public class UserData {
+public class LocalData extends Application {
     private Study_time study_time;
 
     private String id;

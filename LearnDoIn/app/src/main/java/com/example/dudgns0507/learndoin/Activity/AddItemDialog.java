@@ -52,8 +52,12 @@ public class AddItemDialog extends Dialog {
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.dimAmount=0.5f;
 
+        int width = (int)(getContext().getResources().getDisplayMetrics().widthPixels*0.90);
+        int height = (int)(getContext().getResources().getDisplayMetrics().heightPixels*0.60);
+
         this.getWindow().setAttributes(lp);
         this.getWindow().setBackgroundDrawableResource(R.color.white);
+        this.getWindow().setLayout(width, height);
     }
 
     @Override

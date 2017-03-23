@@ -3,11 +3,12 @@ package com.example.dudgns0507.learndoin.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.dudgns0507.learndoin.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -17,6 +18,8 @@ import butterknife.ButterKnife;
 public class AddDdayDialog extends Dialog {
 
     private static final String TAG = "AddDdayDialog";
+
+    @BindView(R.id.add_dday_btn) Button add_dday_btn;
 
     public AddDdayDialog(Context context, int themeResId) {
         super(context, themeResId);
@@ -40,13 +43,20 @@ public class AddDdayDialog extends Dialog {
     }
 
     void init() {
-        Button add_dday_btn = (Button)findViewById(R.id.add_dday_btn);
-        add_dday_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 
-            }
-        });
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(this.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.dimAmount=0.5f;
+
+        int width = (int)(getContext().getResources().getDisplayMetrics().widthPixels*0.90);
+        int height = (int)(getContext().getResources().getDisplayMetrics().heightPixels*0.60);
+
+        this.getWindow().setAttributes(lp);
+        this.getWindow().setBackgroundDrawableResource(R.color.white);
+        this.getWindow().setLayout(width, height);
     }
 
     @Override
