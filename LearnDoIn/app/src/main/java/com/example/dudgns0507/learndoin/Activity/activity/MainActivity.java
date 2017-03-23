@@ -270,14 +270,15 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("앱을 종료하시겠습니까?")
                 .setCancelable(false)
                 .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        System.exit(0);
+                        moveTaskToBack(true);
+                        finish();
+                        android.os.Process.killProcess(android.os.Process.myPid());
                     }
                 })
                 .setNegativeButton("취소", new DialogInterface.OnClickListener() {
