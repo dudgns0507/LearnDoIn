@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,7 +12,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.dudgns0507.learndoin.Activity.AddDdayDialog;
 import com.example.dudgns0507.learndoin.Activity.AddItemDialog;
 import com.example.dudgns0507.learndoin.Activity.FileManage;
@@ -57,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public List<Word> wordList;
 
     @BindView(R.id.list_menu) ImageView list_menu;
+    @BindView(R.id.list_top) ImageView list_top;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -82,6 +81,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light
         );
+
+        Glide.with(this).load(R.drawable.back_1).into(list_top);
 //
 //        putBitmap(R.id.list_top, R.drawable.back_1, 2);
 //        readFile("Day21-35.txt", "Day21-35");
@@ -189,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                                 edit.remove("pw");
 
                                 edit.commit();
-                                
+
                                 finish();
                                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                             }
@@ -264,24 +265,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     @Override
     protected void onDestroy() {
-        Log.w(TAG, "Destroy background");
-        recycleView(R.id.list_top);
         super.onDestroy();
-    }
-
-    private void recycleView(int id) {
-        ImageView view = (ImageView)findViewById(id);
-
-        Drawable d = view.getDrawable();
-        if(d instanceof BitmapDrawable) {
-            Bitmap b = ((BitmapDrawable) d).getBitmap();
-            view.setImageBitmap(null);
-            b.recycle();
-            b = null;
-        }
-        d.setCallback(null);
-        System.gc();
-        Runtime.getRuntime().gc();
     }
 
     @Override

@@ -18,8 +18,7 @@
                 android:id="@+id/list_top"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/back_1" />
+                android:scaleType="fitXY" />
         </FrameLayout>
 
         <FrameLayout
